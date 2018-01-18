@@ -4,15 +4,16 @@
   "version": "1.0.0",
   "author": "Binoy Patel <me@binoy.io>",
   "dependencies": {
+    "bootstrap": "4.0.0-beta.3",
     "gatsby": "^1.9.153",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-styled-components": "^2.0.4",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "reactstrap": "^5.0.0-alpha.4",
+    "styled-components": "^2.4.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
@@ -22,6 +23,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
     "prettier": "^1.10.2"
   }
 }

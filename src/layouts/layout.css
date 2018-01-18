@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,900");
+
+/* Reset */
+h2,
+h3,
+ul {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  background-color: #002331;
+  font-family: "Roboto", sans-serif;
+  color: #507d8f;
+}
+
+::selection {
+  background: #333;
+  color: #fff;
+}
+
+/* Bootstrap override */
+.nav-link.active {
+  background-color: #fd3c4f;
+}
+
+.nav-link.active:hover {
+  background-color: #fd3c4f;
+  color: #fff;
+}
+
+.navbar-toggler {
+  padding: 0 0.5rem;
+}
