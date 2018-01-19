@@ -6,6 +6,7 @@ import styled from "styled-components";
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./layout.css";
 
 const StyledContainer = styled(Container)`
@@ -23,6 +24,7 @@ const TemplateWrapper = props => (
     />
     <Header {...props} />
     <StyledContainer>{props.children()}</StyledContainer>
+    <Footer />
   </div>
 );
 

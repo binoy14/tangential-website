@@ -1,12 +1,18 @@
 import React from "react";
-import Link from "gatsby-link";
+import styled from "styled-components";
+import ButtonLink from "../components/ButtonLink";
+import { primaryText } from "../colors";
+
+const StyledHeader = styled.h2`
+  color: ${primaryText};
+  font-weight: 100;
+`;
 
 const IndexPage = () => (
   <div>
-    <h1>Hi people</h1>
+    <StyledHeader>Hey, I'm Binoy</StyledHeader>
     <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <ButtonLink to="/page-2" title="Go to page 2" />
   </div>
 );
 
