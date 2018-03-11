@@ -20,6 +20,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/src/blog`,
+      },
+    },
+    {
       resolve: "gatsby-remark-images",
       options: {
         maxWidth: 590,
@@ -32,6 +39,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
           },
+          "gatsby-remark-prismjs",
         ],
       },
     },

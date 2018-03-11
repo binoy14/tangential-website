@@ -30,7 +30,10 @@ export default IndexPage;
 
 export const query = graphql`
   query Portfolio {
-    allMarkdownRemark(sort: { fields: [frontmatter___number], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___number], order: DESC }
+      filter: { fields: { type: { eq: "portfolio" } } }
+    ) {
       edges {
         node {
           id

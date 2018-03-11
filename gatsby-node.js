@@ -6,16 +6,39 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: "portfolio",
-    });
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/portfolio/${speakingurl(slug)}`,
-    });
+    if (getNode(node.parent).dir.includes("/portfolio")) {
+      const slug = createFilePath({
+        node,
+        getNode,
+        basePath: "portfolio",
+      });
+      createNodeField({
+        node,
+        name: "slug",
+        value: `/portfolio/${speakingurl(slug)}`,
+      });
+      createNodeField({
+        node,
+        name: "type",
+        value: "portfolio",
+      });
+    } else {
+      const slug = createFilePath({
+        node,
+        getNode,
+        basePath: "blog",
+      });
+      createNodeField({
+        node,
+        name: "slug",
+        value: `/blog/${speakingurl(slug)}`,
+      });
+      createNodeField({
+        node,
+        name: "type",
+        value: "blog",
+      });
+    }
   }
 };
 
@@ -29,6 +52,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             node {
               fields {
                 slug
+                type
               }
             }
           }
@@ -36,13 +60,25 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
     `).then((result) => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve("./src/layouts/PortfolioLayout.jsx"),
-          context: {
-            slug: node.fields.slug,
-          },
-        });
+        if (node.fields.type === "portfolio") {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve("./src/layouts/PortfolioLayout.jsx"),
+            context: {
+              slug: node.fields.slug,
+              type: node.fields.type,
+            },
+          });
+        } else {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve("./src/layouts/BlogLayout.jsx"),
+            context: {
+              slug: node.fields.slug,
+              type: node.fields.type,
+            },
+          });
+        }
       });
 
       resolve();

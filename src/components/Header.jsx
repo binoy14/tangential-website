@@ -60,7 +60,10 @@ class Header extends React.Component {
   renderNavItems = () =>
     this.menuItems.map(({ to, name }) => (
       <NavItem key={name}>
-        <NavText className={`nav-link ${this.props.location.pathname === to && "active"}`} to={to}>
+        <NavText
+          className={`nav-link ${this.props.location.pathname.includes === to && "active"}`}
+          to={to}
+        >
           {name}
         </NavText>
       </NavItem>
