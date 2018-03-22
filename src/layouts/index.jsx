@@ -4,17 +4,24 @@ import Helmet from "react-helmet";
 import { Container } from "reactstrap";
 import styled from "styled-components";
 import "./reset.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./layout.css";
 
 const StyledContainer = styled(Container)`
   margin-top: 50px;
+  flex: 2;
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 const TemplateWrapper = props => (
-  <div>
+  <MainContainer>
     <Helmet
       title="Tangential"
       meta={[
@@ -25,7 +32,7 @@ const TemplateWrapper = props => (
     <Header {...props} />
     <StyledContainer>{props.children()}</StyledContainer>
     <Footer />
-  </div>
+  </MainContainer>
 );
 
 TemplateWrapper.propTypes = {

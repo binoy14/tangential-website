@@ -15,7 +15,7 @@ const IndexPage = (props) => {
   return (
     <div>
       <StyledHeader>Hey, I&apos;m Binoy</StyledHeader>
-      <p>Welcome to your new Gatsby site.</p>
+      <p>Welcome to Tangential</p>
       <ButtonLink to="/about" title="About Me" />
       <PortfolioList items={portfolioItems} />
     </div>
@@ -31,7 +31,7 @@ export default IndexPage;
 export const query = graphql`
   query Portfolio {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___number], order: DESC }
+      sort: { fields: [frontmatter___number], order: ASC }
       filter: { fields: { type: { eq: "portfolio" } } }
     ) {
       edges {
@@ -43,6 +43,7 @@ export const query = graphql`
           frontmatter {
             title
             number
+            description
             imgUrl {
               childImageSharp {
                 sizes(maxWidth: 900) {

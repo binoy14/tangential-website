@@ -1,23 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,400i,900");
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,400i,900');
 
-/* Reset */
-h2,
-h3,
-ul {
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
+a,
 a:hover {
   text-decoration: none;
 }
 
 body {
   background-color: #002331;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #507d8f;
 }
 
