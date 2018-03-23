@@ -32,18 +32,28 @@ module.exports = {
         maxWidth: 590,
       },
     },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
             resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 650,
+            },
           },
           "gatsby-remark-prismjs",
+          "gatsby-remark-responsive-iframe",
         ],
       },
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-source-medium",
+      options: {
+        username: "@binoy14",
+      },
+    },
   ],
 };

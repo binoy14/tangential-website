@@ -11,6 +11,8 @@ Smart S is a mobile application for Android and iOS tablets that turns any devic
 
 <img src="../static/portfolio/smart-s/home.png">
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OrO5AMTQnf0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ### Get Calendar Info
 
 <img src="../static/portfolio/smart-s/01.png" />
