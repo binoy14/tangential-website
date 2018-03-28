@@ -17,7 +17,6 @@ const StyledNavbar = styled(Navbar)`
   background-color: ${navBackgroundColor};
   padding-top: 0;
   padding-bottom: 0;
-  height: 60px;
 `;
 
 const Text = styled(Link)`
