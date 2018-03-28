@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Tile from "../components/Tile";
+import { secondaryText } from "../colors";
 
 const Description = styled.p`
   margin-top: 10px;
@@ -16,15 +17,21 @@ const Wrapper = styled(Tile)`
   object-fit: contain;
 `;
 
+const Title = styled.h3`
+  a {
+    color: ${secondaryText};
+  }
+`;
+
 const mediumCDNUrl = "https://cdn-images-1.medium.com/fit/t/800/240/";
 
 const BlogTile = ({ blog }) => (
   <Wrapper list key={blog.id}>
-    <h3>
+    <Title>
       <a target="_blank" href={`https://blog.binoy.io/${blog.uniqueSlug}`}>
         {blog.title}
       </a>
-    </h3>
+    </Title>
     <p>{blog.createdAt}</p>
     {blog.virtuals.previewImage.imageId && (
       <BackgroundImage
