@@ -17,6 +17,7 @@ const StyledNavbar = styled(Navbar)`
   background-color: ${navBackgroundColor};
   padding-top: 0;
   padding-bottom: 0;
+  height: 60px;
 `;
 
 const Text = styled(Link)`
@@ -60,10 +61,7 @@ class Header extends React.Component {
   renderNavItems = () =>
     this.menuItems.map(({ to, name }) => (
       <NavItem key={name}>
-        <NavText
-          className={`nav-link ${this.props.location.pathname.includes === to && "active"}`}
-          to={to}
-        >
+        <NavText exact activeClassName="active" className="nav-link" to={to}>
           {name}
         </NavText>
       </NavItem>

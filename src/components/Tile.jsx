@@ -6,14 +6,21 @@ import { tileColor } from "../colors";
 
 const StyledDiv = styled(Container)`
   background-color: ${tileColor};
-  text-align: center;
+  text-align: ${props => (props.list ? "left" : "center")};
   padding: 50px;
+  border-radius: 10px;
+  margin-bottom: ${props => (props.list ? "20px" : "0")};
 `;
 
-const Tile = ({ children }) => <StyledDiv>{children}</StyledDiv>;
+const Tile = ({ children, list }) => <StyledDiv list={list}>{children}</StyledDiv>;
 
 Tile.propTypes = {
-  children: PropTypes.any.isRequired,
+  children: PropTypes.any.isRequired, // eslint-disable-line
+  list: PropTypes.bool,
+};
+
+Tile.defaultProps = {
+  list: false,
 };
 
 export default Tile;

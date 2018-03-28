@@ -1,22 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Tile from "../components/Tile";
+import BlogTile from "../components/BlogTile";
 
 const Blog = ({ data }) => (
-  <Tile>
-    <h2>Blogs on Medium</h2>
-    {data.allMediumPost.edges.map(({ node }) => (
-      <div key={node.id}>
-        <h3>
-          <a target="_blank" href={`https://blog.binoy.io/${node.uniqueSlug}`}>
-            {node.title}
-          </a>
-        </h3>
-        <p>{node.createdAt}</p>
-        <p>{node.virtuals.subtitle}</p>
-      </div>
-    ))}
-  </Tile>
+  <div>
+    {data.allMediumPost.edges.map(({ node }) => <BlogTile list key={node.id} blog={node} />)}
+  </div>
 );
 
 Blog.propTypes = {
@@ -33,6 +22,9 @@ export const query = graphql`
           uniqueSlug
           virtuals {
             subtitle
+            previewImage {
+              imageId
+            }
           }
           createdAt(formatString: "MMMM DD, YYYY")
         }
