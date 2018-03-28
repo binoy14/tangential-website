@@ -55,6 +55,20 @@ class Header extends React.Component {
     },
   ];
 
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleMouseDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleMouseDown);
+  }
+
+  handleMouseDown = e => {
+    if (this.menu && !this.menu.contains(e.target)) {
+      this.setState({ isOpen: false });
+    }
+  };
+
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   renderNavItems = () =>
@@ -66,21 +80,25 @@ class Header extends React.Component {
       </NavItem>
     ));
 
+  setRef = ref => (this.menu = ref);
+
   render() {
     return (
-      <StyledNavbar color="faded" dark expand="md">
-        <Container>
-          <Text className="navbar-brand" to="/">
-            Tangential
-          </Text>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              {this.renderNavItems()}
-            </Nav>
-          </Collapse>
-        </Container>
-      </StyledNavbar>
+      <div ref={this.setRef}>
+        <StyledNavbar color="faded" dark expand="md">
+          <Container>
+            <Text className="navbar-brand" to="/">
+              Tangential
+            </Text>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                {this.renderNavItems()}
+              </Nav>
+            </Collapse>
+          </Container>
+        </StyledNavbar>
+      </div>
     );
   }
 }
