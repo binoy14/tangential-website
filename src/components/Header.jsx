@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarToggler,
-  Collapse,
-  Nav,
-  NavItem,
-  NavLink,
-  Container,
-} from "reactstrap";
+import { Navbar, NavbarToggler, Collapse, Nav, NavItem, Container } from "reactstrap";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import { navBackgroundColor, primaryText } from "../colors";
@@ -36,6 +27,18 @@ class Header extends React.Component {
     isOpen: false,
   };
 
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleMouseDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleMouseDown);
+  }
+
+  setRef = (ref) => {
+    this.menu = ref;
+  };
+
   menuItems = [
     {
       to: "/",
@@ -55,15 +58,7 @@ class Header extends React.Component {
     },
   ];
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleMouseDown);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleMouseDown);
-  }
-
-  handleMouseDown = e => {
+  handleMouseDown = (e) => {
     if (this.menu && !this.menu.contains(e.target)) {
       this.setState({ isOpen: false });
     }
@@ -79,8 +74,6 @@ class Header extends React.Component {
         </NavText>
       </NavItem>
     ));
-
-  setRef = ref => (this.menu = ref);
 
   render() {
     return (

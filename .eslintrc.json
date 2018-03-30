@@ -3,6 +3,10 @@
   "globals": {
     "graphql": true
   },
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
   "rules": {
     "import/no-extraneous-dependencies": "0",
     "quotes": ["error", "double"],

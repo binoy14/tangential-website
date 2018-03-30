@@ -10,12 +10,16 @@ const StyledHeader = styled.h2`
   font-weight: 100;
 `;
 
+const StyledSubtext = styled.p`
+  color: ${primaryText};
+`;
+
 const IndexPage = (props) => {
   const portfolioItems = props.data.allMarkdownRemark.edges;
   return (
     <div>
       <StyledHeader>Hey, I&apos;m Binoy</StyledHeader>
-      <p>Welcome to Tangential</p>
+      <StyledSubtext>JavaScript Developer, React Groupie and GraphQL Enthusiast</StyledSubtext>
       <ButtonLink to="/about" title="About Me" />
       <PortfolioList items={portfolioItems} />
     </div>
