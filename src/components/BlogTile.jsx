@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Tile from "../components/Tile";
 import { secondaryText } from "../colors";
 
@@ -28,9 +29,9 @@ const mediumCDNUrl = "https://cdn-images-1.medium.com/fit/t/800/240/";
 const BlogTile = ({ blog }) => (
   <Wrapper list key={blog.id}>
     <Title>
-      <a target="_blank" href={`https://blog.binoy.io/${blog.uniqueSlug}`}>
+      <OutboundLink target="_blank" href={`https://blog.binoy.io/${blog.uniqueSlug}`}>
         {blog.title}
-      </a>
+      </OutboundLink>
     </Title>
     <p>{blog.createdAt}</p>
     {blog.virtuals.previewImage.imageId && (
