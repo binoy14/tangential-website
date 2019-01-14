@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { graphql } from "gatsby";
 import ButtonLink from "../components/ButtonLink";
 import PortfolioList from "../components/PortfolioList";
-import { primaryText } from "../colors";
+import colors from "../colors";
+import Layout from "../components/Layout";
+
+const { primaryText } = colors;
 
 const StyledHeader = styled.h2`
   color: ${primaryText};
@@ -17,12 +21,12 @@ const StyledSubtext = styled.p`
 const IndexPage = (props) => {
   const portfolioItems = props.data.allMarkdownRemark.edges;
   return (
-    <div>
+    <Layout>
       <StyledHeader>Hey, I&apos;m Binoy</StyledHeader>
       <StyledSubtext>JavaScript Developer, React Groupie and GraphQL Enthusiast</StyledSubtext>
       <ButtonLink to="/about" title="About Me" />
       <PortfolioList items={portfolioItems} />
-    </div>
+    </Layout>
   );
 };
 

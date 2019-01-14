@@ -1,11 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { graphql } from "gatsby";
 import DetailPage from "../components/DetailPage";
+import Layout from "../components/Layout";
 
 const PortfolioLayout = (props) => {
   const { frontmatter, html } = props.data.markdownRemark;
 
-  return <DetailPage title={frontmatter.title} html={html} />;
+  return (
+    <Layout>
+      <DetailPage title={frontmatter.title} html={html} />
+    </Layout>
+  );
 };
 
 PortfolioLayout.propTypes = {

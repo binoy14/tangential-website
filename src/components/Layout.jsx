@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { Container } from "reactstrap";
 import styled from "styled-components";
-import "./reset.css";
+import "../layouts/reset.css";
 import "bootstrap/dist/css/bootstrap.css"; // eslint-disable-line
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import "./layout.css";
+import Header from "./Header";
+import Footer from "./Footer";
+import "../layouts/layout.css";
 import favicon from "../static/favicon.ico";
 
 const StyledContainer = styled(Container)`
@@ -21,7 +21,7 @@ const MainContainer = styled.div`
   min-height: 100vh;
 `;
 
-const TemplateWrapper = props => (
+const Layout = props => (
   <MainContainer>
     <Helmet
       title="Tangential - Binoy Patel"
@@ -53,13 +53,13 @@ const TemplateWrapper = props => (
       <link rel="shortcut icon" href={favicon} />
     </Helmet>
     <Header {...props} />
-    <StyledContainer>{props.children()}</StyledContainer>
+    <StyledContainer>{props.children}</StyledContainer>
     <Footer />
   </MainContainer>
 );
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired,
+Layout.propTypes = {
+  children: PropTypes.any.isRequired, // eslint-disable-lint
 };
 
-export default TemplateWrapper;
+export default Layout;

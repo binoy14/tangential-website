@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Tile from "../components/Tile";
-import { secondaryText } from "../colors";
+import colors from "../colors";
+
+const { secondaryText } = colors;
 
 const Description = styled.p`
   margin-top: 10px;

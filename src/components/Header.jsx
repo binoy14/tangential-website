@@ -2,7 +2,9 @@ import React from "react";
 import { Navbar, NavbarToggler, Collapse, Nav, NavItem, Container } from "reactstrap";
 import Link from "gatsby-link";
 import styled from "styled-components";
-import { navBackgroundColor, primaryText } from "../colors";
+import colors from "../colors";
+
+const { navBackgroundColor, primaryText } = colors;
 
 const StyledNavbar = styled(Navbar)`
   background-color: ${navBackgroundColor};
@@ -69,7 +71,7 @@ class Header extends React.Component {
   renderNavItems = () =>
     this.menuItems.map(({ to, name }) => (
       <NavItem key={name}>
-        <NavText exact activeClassName="active" className="nav-link" to={to}>
+        <NavText exact={to.toString()} activeClassName="active" className="nav-link" to={to}>
           {name}
         </NavText>
       </NavItem>
