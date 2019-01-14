@@ -63,5 +63,17 @@ module.exports = {
         trackingId: "UA-117102889-1",
       },
     },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Tangential",
+        short_name: "Tangential",
+        start_url: "/",
+        backgroundColor: "#002331",
+        display: "standalone",
+        // icon: "src/static/favicon.ico",
+      },
+    },
+    "gatsby-plugin-offline",
   ],
 };
