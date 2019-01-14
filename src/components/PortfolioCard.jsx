@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
-import { tileColor, secondaryText } from "../colors";
+import colors from "../colors";
 
+const { tileColor, secondaryText } = colors;
 const CardWrapper = styled.div`
   border-radius: 5px;
   background-color: ${tileColor};

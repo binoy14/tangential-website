@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { secondaryText } from "../colors";
+import colors from "../colors";
+
+const { secondaryText } = colors;
 
 export const StyledHeader = styled.h2`
   color: ${secondaryText};

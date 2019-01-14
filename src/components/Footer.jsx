@@ -1,8 +1,9 @@
 import React from "react";
 import { Container } from "reactstrap";
 import styled from "styled-components";
-import { primaryText } from "../colors";
+import colors from "../colors";
 
+const { primaryText } = colors;
 const FooterContainer = styled.div`
   width: 100%;
   margin: 40px 0;

@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { graphql } from "gatsby";
 import BlogTile from "../components/BlogTile";
+import Layout from "../components/Layout";
 
 const Blog = ({ data }) => (
-  <div>
-    {data.allMediumPost.edges.map(({ node }) => <BlogTile list key={node.id} blog={node} />)}
-  </div>
+  <Layout>
+    {data.allMediumPost.edges.map(({ node }) => (
+      <BlogTile list key={node.id} blog={node} />
+    ))}
+  </Layout>
 );
 
 Blog.propTypes = {
