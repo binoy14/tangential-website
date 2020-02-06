@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { Link } from "gatsby";
 import Tile from "../components/Tile";
 import colors from "../colors";
 
@@ -9,11 +9,6 @@ const { secondaryText } = colors;
 
 const Description = styled.p`
   margin-top: 10px;
-`;
-
-const BackgroundImage = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 const Wrapper = styled(Tile)`
@@ -26,23 +21,15 @@ const Title = styled.h3`
   }
 `;
 
-const mediumCDNUrl = "https://cdn-images-1.medium.com/fit/t/800/240/";
-
 const BlogTile = ({ blog }) => (
   <Wrapper list key={blog.id}>
     <Title>
-      <OutboundLink target="_blank" href={`https://blog.binoy.io/${blog.uniqueSlug}`}>
-        {blog.title}
-      </OutboundLink>
+      <Link to={blog.fields.slug}>{blog.frontmatter.title}</Link>
     </Title>
-    <p>{blog.createdAt}</p>
-    {blog.virtuals.previewImage.imageId && (
-      <BackgroundImage
-        src={`${mediumCDNUrl}${blog.virtuals.previewImage.imageId}`}
-        alt="Blog background"
-      />
-    )}
-    <Description>{blog.virtuals.subtitle}</Description>
+    <p>
+      {blog.frontmatter.date} · {blog.timeToRead} min read
+    </p>
+    <Description>{blog.excerpt}</Description>
   </Wrapper>
 );
 
