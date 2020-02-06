@@ -51,17 +51,29 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-source-medium",
-      options: {
-        username: "@binoy14",
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-medium",
+    //   options: {
+    //     username: "@binoy14",
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-117102889-1",
       },
     },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Tangential",
+        short_name: "Tangential",
+        start_url: "/",
+        backgroundColor: "#002331",
+        display: "standalone",
+        icon: "src/static/logo.png",
+      },
+    },
+    "gatsby-plugin-offline",
   ],
 };
