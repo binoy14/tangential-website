@@ -51,12 +51,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: "gatsby-source-medium",
-    //   options: {
-    //     username: "@binoy14",
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
