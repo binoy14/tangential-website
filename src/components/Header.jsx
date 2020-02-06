@@ -50,10 +50,10 @@ class Header extends React.Component {
       to: "/about",
       name: "About",
     },
-    {
-      to: "/blog",
-      name: "Blog",
-    },
+    // {
+    //   to: "/blog",
+    //   name: "Blog",
+    // },
     {
       to: "/contact",
       name: "Contact",

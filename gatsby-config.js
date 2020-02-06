@@ -51,12 +51,12 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-source-medium",
-      options: {
-        username: "@binoy14",
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-medium",
+    //   options: {
+    //     username: "@binoy14",
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -71,7 +71,7 @@ module.exports = {
         start_url: "/",
         backgroundColor: "#002331",
         display: "standalone",
-        // icon: "src/static/favicon.ico",
+        icon: "src/static/logo.png",
       },
     },
     "gatsby-plugin-offline",

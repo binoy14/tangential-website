@@ -8,7 +8,6 @@ import "bootstrap/dist/css/bootstrap.css"; // eslint-disable-line
 import Header from "./Header";
 import Footer from "./Footer";
 import "../layouts/layout.css";
-import favicon from "../static/favicon.ico";
 
 const StyledContainer = styled(Container)`
   margin-top: 50px;
@@ -49,9 +48,7 @@ const Layout = props => (
             "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
         },
       ]}
-    >
-      <link rel="shortcut icon" href={favicon} />
-    </Helmet>
+    />
     <Header {...props} />
     <StyledContainer>{props.children}</StyledContainer>
     <Footer />
