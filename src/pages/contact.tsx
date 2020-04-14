@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import twitter from "@fortawesome/fontawesome-free-brands/faTwitter";
 import youtube from "@fortawesome/fontawesome-free-brands/faYoutube";
-import medium from "@fortawesome/fontawesome-free-brands/faMedium";
 import email from "@fortawesome/fontawesome-free-solid/faEnvelope";
 import github from "@fortawesome/fontawesome-free-brands/faGithub";
 import linkedIn from "@fortawesome/fontawesome-free-brands/faLinkedin";

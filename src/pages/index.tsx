@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 import ButtonLink from "../components/ButtonLink";
@@ -18,7 +17,36 @@ const StyledSubtext = styled.p`
   color: ${primaryText};
 `;
 
-const IndexPage = (props) => {
+export interface Node {
+  node: {
+    id: string;
+    fields: {
+      slug: string;
+    };
+    frontmatter: {
+      title: string;
+      number: number;
+      descrption: string;
+      imgUrl: {
+        childImageSharp: {
+          sizes: {
+            src: string;
+          };
+        };
+      };
+    };
+  };
+}
+
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      edges: Node[];
+    };
+  };
+}
+
+const IndexPage: React.FC<Props> = (props) => {
   const portfolioItems = props.data.allMarkdownRemark.edges;
   return (
     <Layout>
@@ -28,10 +56,6 @@ const IndexPage = (props) => {
       <PortfolioList items={portfolioItems} />
     </Layout>
   );
-};
-
-IndexPage.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default IndexPage;

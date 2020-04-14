@@ -46,9 +46,12 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma all --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint 'src/**/*'"
+    "lint": "eslint 'src/**/*'",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/react-helmet": "^5.0.15",
+    "@types/styled-components": "^5.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -56,6 +59,20 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.19.0",
-    "prettier": "^2.0.4"
+    "gatsby-plugin-typescript": "^2.3.1",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,md}": [
+      "prettier --write"
+    ]
   }
 }

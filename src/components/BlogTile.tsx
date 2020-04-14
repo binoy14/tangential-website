@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import Tile from "./Tile";
 import colors from "../colors";
+import { Blog } from "../pages/blog";
 
 const { secondaryText } = colors;
 
@@ -21,7 +21,11 @@ const Title = styled.h3`
   }
 `;
 
-const BlogTile = ({ blog }) => (
+interface Props {
+  blog: Blog["node"];
+}
+
+const BlogTile: React.FC<Props> = ({ blog }) => (
   <Wrapper list>
     <Title>
       <Link to={blog.fields.slug}>{blog.frontmatter.title}</Link>
@@ -32,18 +36,5 @@ const BlogTile = ({ blog }) => (
     <Description>{blog.excerpt}</Description>
   </Wrapper>
 );
-
-BlogTile.propTypes = {
-  blog: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-    }).isRequired,
-    timeToRead: PropTypes.number.isRequired,
-    fields: PropTypes.shape({
-      slug: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
 
 export default BlogTile;

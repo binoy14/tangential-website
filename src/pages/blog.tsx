@@ -1,20 +1,39 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import BlogTile from "../components/BlogTile";
 import Layout from "../components/Layout";
 
-const Blog = ({ data }) => (
+export interface Blog {
+  node: {
+    id: string;
+    fields: {
+      slug: string;
+    };
+    frontmatter: {
+      title: string;
+      date: string;
+      description: string;
+    };
+    timeToRead: number;
+    excerpt: string;
+  };
+}
+
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      edges: Blog[];
+    };
+  };
+}
+
+const Blog: React.FC<Props> = ({ data }) => (
   <Layout>
     {data.allMarkdownRemark.edges.map(({ node }) => (
-      <BlogTile list key={node.id} blog={node} />
+      <BlogTile key={node.id} blog={node} />
     ))}
   </Layout>
 );
-
-Blog.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export const query = graphql`
   query allBlogs {

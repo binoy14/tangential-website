@@ -1,10 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import DetailPage from "../components/DetailPage";
 import Layout from "../components/Layout";
 
-const PortfolioLayout = (props) => {
+interface Props {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string;
+      };
+      html: string;
+    };
+  };
+}
+
+const PortfolioLayout: React.FC<Props> = (props) => {
   const { frontmatter, html } = props.data.markdownRemark;
 
   return (
@@ -12,10 +22,6 @@ const PortfolioLayout = (props) => {
       <DetailPage title={frontmatter.title} html={html} />
     </Layout>
   );
-};
-
-PortfolioLayout.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default PortfolioLayout;

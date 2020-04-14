@@ -17,12 +17,7 @@ const StyledText = styled.div`
 const Footer = () => (
   <FooterContainer>
     <Container>
-      <StyledText>
-        Copyright ©
-        {new Date().getFullYear()}
-        {" "}
-        Tangential LLC
-      </StyledText>
+      <StyledText>Copyright © {new Date().getFullYear()} Tangential LLC</StyledText>
     </Container>
   </FooterContainer>
 );

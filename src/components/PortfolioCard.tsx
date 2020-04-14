@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
 import colors from "../colors";
@@ -31,7 +30,20 @@ const CardImg = styled.img`
   object-fit: contain;
 `;
 
-const PortfolioCard = (props) => (
+interface Props {
+  slug: string;
+  title: string;
+  description?: string;
+  imgUrl: {
+    childImageSharp: {
+      sizes: {
+        src: string;
+      };
+    };
+  };
+}
+
+const PortfolioCard: React.FC<Props> = (props) => (
   <Link to={props.slug}>
     <CardWrapper>
       <CardImg alt={props.title} src={props.imgUrl.childImageSharp.sizes.src} />
@@ -42,16 +54,5 @@ const PortfolioCard = (props) => (
     </CardWrapper>
   </Link>
 );
-
-PortfolioCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  imgUrl: PropTypes.objectOf(PropTypes.any).isRequired,
-  description: PropTypes.string,
-};
-
-PortfolioCard.defaultProps = {
-  description: "",
-};
 
 export default PortfolioCard;

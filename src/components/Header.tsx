@@ -17,17 +17,25 @@ const Text = styled(Link)`
   cursor: pointer;
 `;
 
-const NavText = styled(Text)`
+const NavText = styled<any>(Text)`
   &:hover {
     background-color: ${primaryText};
     color: #000 !important;
   }
 `;
 
-class Header extends React.Component {
+interface Props {}
+
+interface State {
+  isOpen: boolean;
+}
+
+class Header extends React.Component<Props, State> {
   state = {
     isOpen: false,
   };
+
+  menu: any;
 
   componentDidMount() {
     document.addEventListener("mousedown", this.handleMouseDown);
@@ -37,7 +45,7 @@ class Header extends React.Component {
     document.removeEventListener("mousedown", this.handleMouseDown);
   }
 
-  setRef = (ref) => {
+  setRef = (ref: any) => {
     this.menu = ref;
   };
 
@@ -60,7 +68,7 @@ class Header extends React.Component {
     },
   ];
 
-  handleMouseDown = (e) => {
+  handleMouseDown = (e: any) => {
     if (this.menu && !this.menu.contains(e.target)) {
       this.setState({ isOpen: false });
     }

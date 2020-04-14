@@ -1,11 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import DetailPage from "../components/DetailPage";
 import "../static/prism.css";
 import Layout from "../components/Layout";
 
-const BlogLayout = ({ data }) => {
+interface Props {
+  data: {
+    markdownRemark: {
+      html: string;
+      frontmatter: {
+        title: string;
+      };
+    };
+  };
+}
+
+const BlogLayout: React.FC<Props> = ({ data }) => {
   const { html, frontmatter } = data.markdownRemark;
 
   return (
@@ -13,10 +23,6 @@ const BlogLayout = ({ data }) => {
       <DetailPage html={html} title={frontmatter.title} />
     </Layout>
   );
-};
-
-BlogLayout.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default BlogLayout;
