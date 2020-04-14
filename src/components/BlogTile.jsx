@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import Tile from "../components/Tile";
+import Tile from "./Tile";
 import colors from "../colors";
 
 const { secondaryText } = colors;
@@ -27,7 +27,12 @@ const BlogTile = ({ blog }) => (
       <Link to={blog.fields.slug}>{blog.frontmatter.title}</Link>
     </Title>
     <p>
-      {blog.frontmatter.date} · {blog.timeToRead} min read
+      {blog.frontmatter.date}
+      {" "}
+      ·
+      {blog.timeToRead}
+      {" "}
+      min read
     </p>
     <Description>{blog.excerpt}</Description>
   </Wrapper>

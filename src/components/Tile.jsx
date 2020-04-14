@@ -10,7 +10,7 @@ const StyledDiv = styled(Container)`
   text-align: left;
   padding: 50px;
   border-radius: 10px;
-  margin-bottom: ${props => (props.list ? "20px" : "0")};
+  margin-bottom: ${(props) => (props.list ? "20px" : "0")};
 `;
 
 const Tile = ({ children, list }) => (

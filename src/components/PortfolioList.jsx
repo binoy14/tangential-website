@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const PortfolioItems = props => (
+const PortfolioItems = (props) => (
   <Wrapper>
     {props.items.map(({ node }) => (
       <PortfolioCard key={node.id} slug={node.fields.slug} {...node.frontmatter} />

@@ -15,6 +15,7 @@ const CardWrapper = styled.div`
   align-items: center;
   color: ${secondaryText};
   min-height: 400px;
+  height: 400px;
   box-shadow: 7px 5px 5px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 500px) {
@@ -30,7 +31,7 @@ const CardImg = styled.img`
   object-fit: contain;
 `;
 
-const PortfolioCard = props => (
+const PortfolioCard = (props) => (
   <Link to={props.slug}>
     <CardWrapper>
       <CardImg src={props.imgUrl.childImageSharp.sizes.src} />
