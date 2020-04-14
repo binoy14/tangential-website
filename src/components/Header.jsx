@@ -83,7 +83,7 @@ class Header extends React.Component {
         <StyledNavbar color="faded" dark expand="md">
           <Container>
             <Text className="navbar-brand" to="/">
-              Tangential
+              Binoy
             </Text>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

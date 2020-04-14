@@ -23,7 +23,7 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <StyledHeader>Hey, I&apos;m Binoy</StyledHeader>
-      <StyledSubtext>JavaScript Developer, React Groupie and GraphQL Enthusiast</StyledSubtext>
+      <StyledSubtext>Web Developer, React Groupie and GraphQL Enthusiast</StyledSubtext>
       <ButtonLink to="/about" title="About Me" />
       <PortfolioList items={portfolioItems} />
     </Layout>

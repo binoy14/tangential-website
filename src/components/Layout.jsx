@@ -20,32 +20,29 @@ const MainContainer = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = props => (
+const Layout = (props) => (
   <MainContainer>
     <Helmet
-      title="Tangential - Binoy Patel"
+      title="Binoy Patel"
       meta={[
-        { name: "keywords", content: "JavaScript, React, React Native, Consulting" },
-        { property: "og:site_name", content: "Tangential - Binoy Patel" },
-        { property: "og:title", content: "Tangential - Binoy Patel" },
-        { property: "og:url", content: "https://www.binoy.io/" },
+        { name: "keywords", content: "TypesScript, JavaScript, React, GraphQL, Consulting" },
+        { property: "og:site_name", content: "Binoy Patel" },
+        { property: "og:title", content: "Binoy Patel" },
+        { property: "og:url", content: "https://binoy.io" },
         { property: "og:type", content: "website" },
-        { itemProp: "name", content: "Tangential - Binoy Patel" },
-        { itemProp: "url", content: "https://www.binoy.io/" },
+        { itemProp: "name", content: "Binoy Patel" },
+        { itemProp: "url", content: "https://binoy.io" },
         {
           property: "og:description",
-          content:
-            "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
+          content: "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
         },
         {
           itemProp: "description",
-          content:
-            "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
+          content: "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
         },
         {
           name: "description",
-          content:
-            "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
+          content: "Tangential is a consulting company that helps companies with Web and Mobile Applications.",
         },
       ]}
     />

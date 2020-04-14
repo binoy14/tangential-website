@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Tangential",
+    title: "Binoy",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -60,8 +60,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Tangential",
-        short_name: "Tangential",
+        name: "Binoy",
+        short_name: "Binoy",
         start_url: "/",
         backgroundColor: "#002331",
         display: "standalone",
