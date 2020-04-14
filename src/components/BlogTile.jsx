@@ -22,17 +22,12 @@ const Title = styled.h3`
 `;
 
 const BlogTile = ({ blog }) => (
-  <Wrapper list key={blog.id}>
+  <Wrapper list>
     <Title>
       <Link to={blog.fields.slug}>{blog.frontmatter.title}</Link>
     </Title>
     <p>
-      {blog.frontmatter.date}
-      {" "}
-      ·
-      {blog.timeToRead}
-      {" "}
-      min read
+      {blog.frontmatter.date} · {blog.timeToRead} min read
     </p>
     <Description>{blog.excerpt}</Description>
   </Wrapper>
@@ -40,14 +35,13 @@ const BlogTile = ({ blog }) => (
 
 BlogTile.propTypes = {
   blog: PropTypes.shape({
-    uniqueSlug: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired,
-    virtuals: PropTypes.shape({
-      previewImage: PropTypes.shape({
-        imageId: PropTypes.string,
-      }),
-      subtitle: PropTypes.string.isRequired,
+    frontmatter: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+    }).isRequired,
+    timeToRead: PropTypes.number.isRequired,
+    fields: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };

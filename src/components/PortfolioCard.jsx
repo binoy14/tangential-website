@@ -34,7 +34,7 @@ const CardImg = styled.img`
 const PortfolioCard = (props) => (
   <Link to={props.slug}>
     <CardWrapper>
-      <CardImg src={props.imgUrl.childImageSharp.sizes.src} />
+      <CardImg alt={props.title} src={props.imgUrl.childImageSharp.sizes.src} />
       <div>
         <h2>{props.title}</h2>
         {props.description && <p>{props.description}</p>}
