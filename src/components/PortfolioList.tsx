@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import PortfolioCard from "./PortfolioCard";
+import { Node } from "../pages";
 
 const Wrapper = styled.div`
   margin-top: 50px;
@@ -14,16 +14,16 @@ const Wrapper = styled.div`
   }
 `;
 
-const PortfolioItems = (props) => (
+interface Props {
+  items: Node[];
+}
+
+const PortfolioItems: React.FC<Props> = (props) => (
   <Wrapper>
     {props.items.map(({ node }) => (
       <PortfolioCard key={node.id} slug={node.fields.slug} {...node.frontmatter} />
     ))}
   </Wrapper>
 );
-
-PortfolioItems.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.any).isRequired,
-};
 
 export default PortfolioItems;

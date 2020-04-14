@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 import Helmet from "react-helmet";
 import { Container } from "reactstrap";
 import styled from "styled-components";
@@ -20,7 +19,11 @@ const MainContainer = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = (props) => (
+interface Props {
+  children: ReactNode | ReactNode[];
+}
+
+const Layout: React.FC<Props> = (props) => (
   <MainContainer>
     <Helmet
       title="Binoy Patel"
@@ -51,9 +54,5 @@ const Layout = (props) => (
     <Footer />
   </MainContainer>
 );
-
-Layout.propTypes = {
-  children: PropTypes.any.isRequired, // eslint-disable-lint
-};
 
 export default Layout;

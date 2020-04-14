@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { Container } from "reactstrap";
 import colors from "../colors";
@@ -13,17 +12,11 @@ const StyledDiv = styled(Container)`
   margin-bottom: ${(props) => (props.list ? "20px" : "0")};
 `;
 
-const Tile = ({ children, list }) => (
-  <StyledDiv list={list}>{children}</StyledDiv>
-);
+interface Props {
+  children: ReactNode | ReactNode[];
+  list?: boolean;
+}
 
-Tile.propTypes = {
-  children: PropTypes.any.isRequired, // eslint-disable-line
-  list: PropTypes.bool,
-};
-
-Tile.defaultProps = {
-  list: false,
-};
+const Tile: React.FC<Props> = ({ children, list = false }) => <StyledDiv list={list}>{children}</StyledDiv>;
 
 export default Tile;

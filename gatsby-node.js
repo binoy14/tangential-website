@@ -63,7 +63,7 @@ exports.createPages = ({ graphql, actions }) => {
         if (node.fields.type === "portfolio") {
           createPage({
             path: node.fields.slug,
-            component: path.resolve("./src/portfolio/PortfolioLayout.jsx"),
+            component: path.resolve("./src/portfolio/PortfolioLayout.tsx"),
             context: {
               slug: node.fields.slug,
               type: node.fields.type,
@@ -72,7 +72,7 @@ exports.createPages = ({ graphql, actions }) => {
         } else {
           createPage({
             path: node.fields.slug,
-            component: path.resolve("./src/blog/BlogLayout.jsx"),
+            component: path.resolve("./src/blog/BlogLayout.tsx"),
             context: {
               slug: node.fields.slug,
               type: node.fields.type,
