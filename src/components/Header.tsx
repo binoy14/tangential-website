@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavbarToggler, Collapse, Nav, NavItem, Container } from "reactstrap";
-import Link from "gatsby-link";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import colors from "../colors";
 

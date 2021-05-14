@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "gatsby-link";
+import { Link } from "gatsby";
 import colors from "../colors";
 
 const { tileColor, secondaryText } = colors;
@@ -26,7 +26,8 @@ const CardWrapper = styled.div`
 
 const CardImg = styled.img`
   width: 100%;
-  height: 100%;
+  // Max height of card content
+  max-height: 360px;
   object-fit: contain;
 `;
 
@@ -36,7 +37,7 @@ interface Props {
   description?: string;
   imgUrl: {
     childImageSharp: {
-      sizes: {
+      fluid: {
         src: string;
       };
     };
@@ -46,7 +47,7 @@ interface Props {
 const PortfolioCard: React.FC<Props> = (props) => (
   <Link to={props.slug}>
     <CardWrapper>
-      <CardImg alt={props.title} src={props.imgUrl.childImageSharp.sizes.src} />
+      <CardImg alt={props.title} src={props.imgUrl.childImageSharp.fluid.src} />
       <div>
         <h2>{props.title}</h2>
         {props.description && <p>{props.description}</p>}

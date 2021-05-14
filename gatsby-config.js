@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: "Binoy",
+    siteUrl: "https://binoy.io",
   },
   plugins: [
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -64,7 +66,7 @@ module.exports = {
         name: "Binoy",
         short_name: "Binoy",
         start_url: "/",
-        backgroundColor: "#002331",
+        background_color: "#002331",
         display: "standalone",
         icon: "src/static/logo.png",
       },
