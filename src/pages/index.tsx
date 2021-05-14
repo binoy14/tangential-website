@@ -29,7 +29,7 @@ export interface Node {
       descrption: string;
       imgUrl: {
         childImageSharp: {
-          sizes: {
+          fluid: {
             src: string;
           };
         };
@@ -78,7 +78,7 @@ export const query = graphql`
             description
             imgUrl {
               childImageSharp {
-                sizes(maxWidth: 900) {
+                fluid(maxWidth: 900) {
                   src
                 }
               }
