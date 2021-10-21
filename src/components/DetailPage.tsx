@@ -11,6 +11,10 @@ const Header = styled.h1`
 
 const Body = styled.div`
   color: ${secondaryText};
+
+  img {
+    width: 100%;
+  }
 `;
 
 interface Props {
