@@ -5,7 +5,10 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx affected:test",
+    "tsc": "tsc",
+    "type-check": "nx run-many --target type-check --all",
+    "lint": "nx affected:lint"
   },
   "private": true,
   "dependencies": {

@@ -48,6 +48,12 @@
       "options": {
         "lintFilePatterns": ["apps/home/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "type-check": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn tsc -p apps/home/tsconfig.json --noEmit"
+      }
     }
   },
   "tags": []

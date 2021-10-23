@@ -49,6 +49,12 @@
           "quiet": true
         }
       }
+    },
+    "type-check": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn tsc -p libs/ui/tsconfig.lib.json --noEmit"
+      }
     }
   }
 }

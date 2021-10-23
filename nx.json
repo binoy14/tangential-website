@@ -1,7 +1,7 @@
 {
   "npmScope": "binoy14",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "feature/nextjs-rewrite"
   },
   "cli": {
     "defaultCollection": "@nrwl/react"
