@@ -5,10 +5,10 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx affected:test",
+    "test": "nx affected --base=origin/feature/nextjs-rewrite --target=test",
     "tsc": "tsc",
     "type-check": "nx run-many --target type-check --all",
-    "lint": "nx affected:lint"
+    "lint": "nx affected --base=origin/feature/nextjs-rewrite --target=lint"
   },
   "private": true,
   "dependencies": {
