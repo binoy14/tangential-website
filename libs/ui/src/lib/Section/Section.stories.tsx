@@ -1,6 +1,5 @@
-import { SectionProps } from "@binoy14/ui";
 import { Story, Meta } from "@storybook/react";
-import { Section } from "./Section";
+import { Section, SectionProps } from "./Section";
 
 export default {
   component: Section,
