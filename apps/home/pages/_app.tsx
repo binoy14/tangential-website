@@ -5,7 +5,7 @@ import { Navigation } from "@binoy14/ui";
 
 const links = [
   {
-    href: "/home",
+    href: "/",
     text: "Home",
   },
   {

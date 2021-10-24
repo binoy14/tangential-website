@@ -26,6 +26,7 @@
     "regenerator-runtime": "0.13.7",
     "storybook-addon-next-router": "^3.0.8",
     "tailwindcss": "^2.2.17",
+    "tailwindcss-classnames": "^2.2.5",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -43,6 +44,7 @@
     "@nrwl/tao": "13.0.1",
     "@nrwl/web": "13.0.1",
     "@nrwl/workspace": "13.0.1",
+    "@storybook/addon-backgrounds": "^6.3.12",
     "@storybook/addon-essentials": "~6.3.0",
     "@storybook/builder-webpack5": "~6.3.0",
     "@storybook/manager-webpack5": "~6.3.0",
