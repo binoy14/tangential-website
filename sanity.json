@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "project": {
+    "name": "website"
+  },
+  "api": {
+    "projectId": "4t7pp8z5",
+    "dataset": "development"
+  },
+  "plugins": ["@sanity/base", "@sanity/default-layout", "@sanity/default-login", "@sanity/desk-tool"],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./apps/sanity/src/schemas/schema"
+    }
+  ]
+}

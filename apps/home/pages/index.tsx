@@ -1,17 +1,43 @@
+import { getSdk } from "@binoy14/cms-types";
 import { Section } from "@binoy14/ui";
+import { GraphQLClient } from "graphql-request";
+import { GetStaticProps } from "next";
 import { classnames } from "tailwindcss-classnames";
 
-export function Index() {
+import { Layout, LayoutProps } from "../components/Layout";
+
+type Props = LayoutProps;
+
+export function Index({ navData }: Props) {
   const styles = classnames("h-40");
 
   return (
-    <div>
-      <Section type="light" classNames={styles}>
-        <h1 className="text-3xl mb-1">Hey 👋, I&apos;m Binoy</h1>
-        <span>Web Developer, React Groupie and GraphQL Enthusiast</span>
-      </Section>
-    </div>
+    <Layout navData={navData}>
+      <div>
+        <Section type="light" classNames={styles}>
+          <h1 className="text-3xl mb-1">Hey 👋, I&apos;m Binoy</h1>
+          <span>Web Developer, React Groupie and GraphQL Enthusiast</span>
+        </Section>
+      </div>
+    </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = new GraphQLClient(process.env.SANITY_GRAPHQL_URL, {
+    headers: {
+      Authorization: `Bearer ${process.env.SANITY_READ_TOKEN}`,
+    },
+  });
+  const sdk = getSdk(client);
+
+  const { data } = await sdk.getNavigation();
+
+  return {
+    props: {
+      navData: data.allNavigation[0],
+    },
+  };
+};
 
 export default Index;

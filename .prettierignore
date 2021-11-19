@@ -2,3 +2,5 @@
 
 /dist
 /coverage
+
+/libs/api/src/lib/generated/**/*

@@ -12,19 +12,19 @@ export const Primary = Template.bind({});
 Primary.args = {
   links: [
     {
-      href: "/home",
+      link: null,
       text: "Home",
     },
     {
-      href: "/about",
+      link: { current: "/about" },
       text: "About",
     },
     {
-      href: "/blog",
+      link: { current: "/blog" },
       text: "Blog",
     },
     {
-      href: "/contact",
+      link: { current: "/contact" },
       text: "Contact",
     },
   ],

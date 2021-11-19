@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@binoy14/cms-types": ["libs/cms-types/src/index.ts"],
       "@binoy14/ui": ["libs/ui/src/index.ts"]
     },
     "strict": true
