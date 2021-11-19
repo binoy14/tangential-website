@@ -1,0 +1,27 @@
+{
+  "root": "libs/cms-types",
+  "sourceRoot": "libs/cms-types/src",
+  "projectType": "library",
+  "targets": {
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn graphql-codegen --config libs/cms-types/codegen.yml"
+      }
+    },
+    "generate-watch": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn graphql-codegen --config libs/cms-types/codegen.yml --watch"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/cms-types/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

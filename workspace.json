@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "cms-types": "libs/cms-types",
     "home": "apps/home",
     "home-e2e": "apps/home-e2e",
     "sanity": "apps/sanity",

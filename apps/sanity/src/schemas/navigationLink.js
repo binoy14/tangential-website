@@ -8,6 +8,7 @@ export default {
       title: "Text",
       type: "string",
       description: "Title of the link",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "link",

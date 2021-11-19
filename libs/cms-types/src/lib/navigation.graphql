@@ -1,0 +1,11 @@
+query getNavigation {
+  allNavigation {
+    title
+    links {
+      text
+      link {
+        current
+      }
+    }
+  }
+}

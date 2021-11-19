@@ -1,20 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from "react";
+import { GetNavigationQuery } from "@binoy14/cms-types";
 import Link from "next/link";
-import { MdMenu, MdClose } from "react-icons/md";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { MdClose, MdMenu } from "react-icons/md";
 import { classnames } from "tailwindcss-classnames";
 
-interface Link {
-  href: string;
-  text: string;
-}
-
 export interface UiProps {
-  links: Link[];
+  links: GetNavigationQuery["allNavigation"][0]["links"];
+  title?: string;
 }
 
-export function Navigation({ links }: UiProps) {
+export function Navigation({ links, title }: UiProps) {
   const [navOpen, setNavOpen] = useState(false);
   const { asPath } = useRouter();
 
@@ -40,10 +37,14 @@ export function Navigation({ links }: UiProps) {
     <>
       <nav>
         <div className="bg-black w-full h-24 flex items-center pl-4 pr-4 text-white transition-all sm:h-36">
-          <h1 className="text-4xl flex-1">Binoy Patel</h1>
+          <h1 className="text-4xl flex-1">{title}</h1>
           {/* Desktop Nav */}
           <ul className="hidden sm:flex">
-            {links.map(({ href, text }) => {
+            {links?.map((navLink) => {
+              const { text = "", link } = navLink || {};
+              const { current = "" } = link || {};
+              const href = `/${current}`;
+
               const styles = classnames(linkClasses, "mr-6", {
                 "text-yellow-400": asPath === href,
               });
@@ -73,13 +74,19 @@ export function Navigation({ links }: UiProps) {
       </nav>
       <ul className={mbUlClasses}>
         {navOpen &&
-          links.map(({ href, text }) => (
-            <li key={href} className={`mb-6 ${linkClasses}`}>
-              <Link href={href}>
-                <a className="text-xl">{text}</a>
-              </Link>
-            </li>
-          ))}
+          links?.map((navLink) => {
+            const { text = "", link } = navLink || {};
+            const { current = "" } = link || {};
+            const href = `/${current}`;
+
+            return (
+              <li key={href} className={`mb-6 ${linkClasses}`}>
+                <Link href={href}>
+                  <a className="text-xl">{text}</a>
+                </Link>
+              </li>
+            );
+          })}
       </ul>
     </>
   );
