@@ -7,7 +7,7 @@
     "start": "nx serve",
     "start:sanity": "nx run sanity:serve",
     "build": "nx build",
-    "build:sanity": "nx run sanity:build",
+    "build:sanity": "nx run sanity:build && nx run sanity:deploy-graphql",
     "test": "nx affected --base=origin/feature/nextjs-rewrite --target=test",
     "tsc": "tsc",
     "type-check": "nx run-many --target type-check --all",
