@@ -1,0 +1,9 @@
+query getPagesRoutes {
+  allPage {
+    slug {
+      link {
+        current
+      }
+    }
+  }
+}

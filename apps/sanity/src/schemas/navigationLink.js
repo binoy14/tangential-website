@@ -1,7 +1,10 @@
+import { MdNavigation } from "react-icons/md";
+
 export default {
   name: "navigationLink",
   title: "Navigation Link",
   type: "document",
+  icon: MdNavigation,
   fields: [
     {
       name: "text",

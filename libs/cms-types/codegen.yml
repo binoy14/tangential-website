@@ -2,8 +2,8 @@ overwrite: true
 schema:
   - https://4t7pp8z5.api.sanity.io/v1/graphql/development/default
 generates:
-  libs/api/src/lib/generated/generated.ts:
-    documents: "libs/api/src/lib/**/*.graphql"
+  libs/cms-types/src/lib/generated/generated.ts:
+    documents: "libs/cms-types/src/lib/**/*.graphql"
     plugins:
       - "typescript"
       - "typescript-operations"

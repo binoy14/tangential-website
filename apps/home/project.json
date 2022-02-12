@@ -60,7 +60,7 @@
       "options": {
         "commands": [
           "yarn nx run home:serve",
-          "yarn nx run api:generate-watch",
+          "yarn nx run cms-types:generate-watch",
           "yarn nx run sanity:serve",
           "yarn nx run ui:storybook"
         ],

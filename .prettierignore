@@ -3,4 +3,4 @@
 /dist
 /coverage
 
-/libs/api/src/lib/generated/**/*
+/libs/cms-types/src/lib/generated/**/*
