@@ -1,0 +1,16 @@
+query getPages {
+  allPage {
+    title
+    slug {
+      link {
+        current
+      }
+    }
+    content {
+      ... on Section {
+        header
+        subtext
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { getSdk } from "@binoy14/cms-types";
 import { Section } from "@binoy14/ui";
 import { GraphQLClient } from "graphql-request";
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { classnames } from "tailwindcss-classnames";
 
 import { Layout, LayoutProps } from "../components/Layout";
@@ -23,7 +23,28 @@ export function Index({ navData }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const client = new GraphQLClient(process.env.SANITY_GRAPHQL_URL, {
+    headers: {
+      Authorization: `Bearer ${process.env.SANITY_READ_TOKEN}`,
+    },
+  });
+
+  const sdk = getSdk(client);
+
+  const { data } = await sdk.getPagesRoutes();
+
+  const paths = data.allPage.map((page) => ({
+    params: { page: page.slug.link?.current ? [page.slug.link.current] : [], id: "test" },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const client = new GraphQLClient(process.env.SANITY_GRAPHQL_URL, {
     headers: {
       Authorization: `Bearer ${process.env.SANITY_READ_TOKEN}`,
