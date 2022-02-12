@@ -1,0 +1,12 @@
+overwrite: true
+schema:
+  - https://4t7pp8z5.api.sanity.io/v1/graphql/development/default
+generates:
+  libs/cms-types/src/lib/generated/generated.ts:
+    documents: "libs/cms-types/src/lib/**/*.graphql"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+    config:
+      rawRequest: true
